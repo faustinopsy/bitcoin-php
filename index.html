@@ -2,39 +2,29 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Bitcoin Key Generator</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Buscar o Tesouro</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Bitcoin Key Generator</h1>
-    <button id="generate">Generate New Key</button>
+    <h1>Gere as Chaves</h1>
+    <hr>
+    <button id="btn-buscar">Buscar Tesouro</button>
+    <hr>
+    <img src="img/loading.gif" class="loading" id="loadingImage"/>
     <div id="output"></div>
 
-    <script>
-        $('#generate').click(function() {
-            $.ajax({
-                url: 'server_logic.php',
-                type: 'GET',
-                success: function(data) {
-                    var response = JSON.parse(data);
-                    $('#output').empty();
-                    response.forEach(function(result) {
-                        $('#output').append('<p>Palavras: ' + result.Palavras + '</p>');
-                        $('#output').append('<p>Privada: ' + result.Privada + '</p>');
-                        $('#output').append('<p>Pública: ' + result.Publica + '</p>');
-                        // Para os saldos, você pode iterar através do objeto Balances e adicionar cada saldo à div de saída
-                        for (var key in result.Balances) {
-                            $('#output').append('<p>' + key + ': ' + result.Balances[key] + '</p>');
-                        }
-                        $('#output').append('<hr>'); // Uma linha horizontal para separar cada conjunto de resultados
-                    });
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-        });
-        </script>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Seja bem-vindo(a) ao nosso Gerador de Chaves Bitcoin!</h2>
+            <p>Nós geramos palavras-chave baseadas na lista de palavras de BIP-0039, que contém 2048 palavras. Usamos um algoritmo para selecionar 12 palavras aleatórias dessa lista. </p>
+            <p>Estas palavras são então enviadas para o site <a href="https://privatekeyfinder.io/" target="_blank">privatekeyfinder.io</a>, onde são usadas para gerar chaves privadas. As palavras são enviadas de três maneiras diferentes: na forma original, em letras maiúsculas e invertidas.</p>
+            <p>Uma vez que temos as chaves privadas, usamos as respectivas chaves públicas para procurar possíveis saldos de Bitcoin na <a href="https://blockchain.info/" target="_blank">blockchain.info</a>. Verificamos tanto os saldos atuais quanto os antigos para cada chave pública.</p>
+            <p>Nosso objetivo é descobrir carteiras de Bitcoin e ganhar o desafio de encontrar uma chave privada válida que tenha ou já tenha tido um saldo.</p>
+            <button id="close-btn">Entendi</button>
+        </div>
+    </div>
+    <script src="js/funcoes.js"></script>
         
 </body>
 </html>

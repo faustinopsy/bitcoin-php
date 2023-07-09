@@ -54,8 +54,7 @@ for($i=0;$i<4;$i++){
         echo 'Pública:'.$dados["result"][$wallet[$i]]["address"]["p2pkh_u"].'<br>';
        
         $public_key = $dados["result"][$wallet[$i]]["address"]["p2pkh_u"];
-    
-        // Cheque se essa chave pública existe nos dados
+
         if (isset($data[$public_key])) {
             foreach ($data[$public_key] as $key => $nvalor) {
                 if($nvalor>0){

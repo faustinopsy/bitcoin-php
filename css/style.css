@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+#btn-buscar {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px #3e34ee solid;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+#btn-buscar:hover {
+    background-color: #3e34ee;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.loading {
+    display: none;
+}
+.positive {
+    color: green;
+}
+
+.zero {
+    color: red;
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255,255,255,0.4); /* Altera para um fundo claro para realçar o efeito de vidro */
+    backdrop-filter: blur(10px); /* Aplica o efeito de desfoque */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    border: solid 3px #00ff00;
+    border-radius: 10px;
+    animation: pulsate 2s infinite;
+}
+
+@keyframes pulsate {
+    0%   { box-shadow: 0 0 5px #33e3da, 0 0 25px #00ff00, 0 0 50px #00ff00, 0 0 200px #2ac4d5; }
+    50%  { box-shadow: 0 0 10px #fdfa29, 0 0 20px #18b7ec, 0 0 40px #d2cf19, 0 0 150px #0eedde; }
+    100% { box-shadow: 0 0 5px #00ff00, 0 0 25px #00ff00, 0 0 50px #00ff00, 0 0 200px #00ff00; }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+.close {
+    color: #bb0707;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
