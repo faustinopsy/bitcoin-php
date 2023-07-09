@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Bitcoin Key Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Bitcoin Key Generator</h1>
+    <button id="generate">Generate New Key</button>
+    <div id="output"></div>
+
+    <script>
+        $('#generate').click(function() {
+            $.ajax({
+                url: 'server_logic.php',
+                type: 'GET',
+                success: function(data) {
+                    var response = JSON.parse(data);
+                    $('#output').empty();
+                    response.forEach(function(result) {
+                        $('#output').append('<p>Palavras: ' + result.Palavras + '</p>');
+                        $('#output').append('<p>Privada: ' + result.Privada + '</p>');
+                        $('#output').append('<p>Pública: ' + result.Publica + '</p>');
+                        // Para os saldos, você pode iterar através do objeto Balances e adicionar cada saldo à div de saída
+                        for (var key in result.Balances) {
+                            $('#output').append('<p>' + key + ': ' + result.Balances[key] + '</p>');
+                        }
+                        $('#output').append('<hr>'); // Uma linha horizontal para separar cada conjunto de resultados
+                    });
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+        </script>
+        
+</body>
+</html>
