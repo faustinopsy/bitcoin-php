@@ -1,4 +1,5 @@
 <?php
+
 $wordlist = file('english.txt', FILE_IGNORE_NEW_LINES);
 $words = [];
 
@@ -9,11 +10,7 @@ for($i = 0; $i < 12; $i++) {
 
 $mnemonic = implode(' ', $words);
 
-//echo 'Palavras: '.$mnemonic.'<br>';
-//$mnemonic='lounge example scout exercise apology gauge youth parrot offer strategy diet budget';
-
 $curl = curl_init();
-
 curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://privatekeyfinder.io/api/searchv3',
   CURLOPT_RETURNTRANSFER => true,
@@ -58,7 +55,6 @@ for($i=0;$i<4;$i++){
        
         $public_key = $dados["result"][$wallet[$i]]["address"]["p2pkh_u"];
     
-        // Cheque se essa chave pública existe nos dados
         if (isset($data[$public_key])) {
             $balances = [];
             foreach ($data[$public_key] as $key => $nvalor) {

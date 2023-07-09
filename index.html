@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Buscar o Tesouro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/default.min.css">
 </head>
 <body>
     <h1>Gere as Chaves</h1>
@@ -13,6 +14,20 @@
     <img src="img/loading.gif" class="loading" id="loadingImage"/>
     <div id="output"></div>
 
+    <div class="row">
+        <div class="card">
+          <h2>Se Encontrar Algum Bitcoin, colabore comigo...</h2>
+          <h3>Bitcoin Wallet</h3>
+          <p>15wTMnT4Q1CTYqqjF8LaKmLisvU9tASHje</p>
+          <h3>PicPay Wallet</h3>
+          <p>@faustinopsy</p>
+      
+      </div>
+    </div>
+    <button id="show-code">Mostrar Código Fonte</button>
+    <div id="code-detail" style="display: none;">
+        <pre id="code-content"></pre>
+    </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -24,6 +39,7 @@
             <button id="close-btn">Entendi</button>
         </div>
     </div>
+    <script src="js/highlight.min.js"></script>
     <script src="js/funcoes.js"></script>
         
 </body>
