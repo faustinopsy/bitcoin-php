@@ -1,8 +1,10 @@
 document.getElementById('btn-buscar').addEventListener('click', function() {
     document.getElementById('loadingImage').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
     var wordCount = document.getElementById('wordCount').value;
     fetch(`server_logic.php?wordCount=${wordCount}`).then(response => response.json()).then(data => {
         document.getElementById('loadingImage').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
         document.getElementById('output').innerHTML = '';
         data.forEach(function(result) {
             var card = '<div class="card">';
@@ -20,6 +22,7 @@ document.getElementById('btn-buscar').addEventListener('click', function() {
     })
     .catch((error) => {
         document.getElementById('loadingImage').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
         console.error('Error:', error);
     });
 });

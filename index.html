@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Buscar o Tesouro</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/default.min.css">
 </head>
 <body>
+    <div class="bg-image">
     <h1>Gere as Chaves</h1>
     <hr>
+    <div id="overlay"></div>
+    <img src="img/loading.gif" class="loading" id="loadingImage"/>
     <div id="keygenControls">
         <label for="wordCount">Quantidade de palavras:</label>
         <select id="wordCount">
@@ -22,7 +26,7 @@
         <button id="btn-buscar">Buscar Tesouro</button>
     </div>
     <hr>
-    <img src="img/loading.gif" class="loading" id="loadingImage"/>
+    
     <div id="output"></div>
 
     <div class="row">
@@ -52,6 +56,7 @@
     </div>
     <div class="footer">
         <p>faustinopsy.com</p>
+      </div>
       </div>
     <script src="js/highlight.min.js"></script>
     <script src="js/funcoes.js"></script>

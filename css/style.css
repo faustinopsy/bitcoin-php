@@ -1,128 +1,178 @@
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f2f2f2;
-}
-#btn-buscar {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px #3e34ee solid;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-}
-#btn-buscar:hover {
-    background-color: #3e34ee;
-}
-#wordCount {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    appearance: none; /* Remove a aparência padrão em alguns navegadores */
-    -webkit-appearance: none; /* Remove a aparência padrão no Chrome e Safari */
-    -moz-appearance: none; /* Remove a aparência padrão no Firefox */
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-#keygenControls {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-#close-btn{
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px #3e34ee solid;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-}
-#close-btn:hover {
-    background-color: #3e34ee;
-}
-.card {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-.loading {
-    display: none;
-}
-.positive {
-    color: green;
-}
-
-.zero {
-    color: red;
-}
-
-.modal {
-    display: block;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(255,255,255,0.4); /* Altera para um fundo claro para realçar o efeito de vidro */
-    backdrop-filter: blur(10px); /* Aplica o efeito de desfoque */
-}
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-    border: solid 3px #00ff00;
-    border-radius: 10px;
-    animation: pulsate 2s infinite;
-}
-
-@keyframes pulsate {
-    0%   { box-shadow: 0 0 5px #33e3da, 0 0 25px #00ff00, 0 0 50px #00ff00, 0 0 200px #2ac4d5; }
-    50%  { box-shadow: 0 0 10px #fdfa29, 0 0 20px #18b7ec, 0 0 40px #d2cf19, 0 0 150px #0eedde; }
-    100% { box-shadow: 0 0 5px #00ff00, 0 0 25px #00ff00, 0 0 50px #00ff00, 0 0 200px #00ff00; }
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
-.close {
-    color: #bb0707;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-.footer {
+body, html {
+    height: 800px;
+    margin: 0;
+    padding: 0;
     position: relative;
-    left: 0;
-    bottom: 0;
+  }
+  #overlay {
+      display: none;
+      position: absolute; /* isto faz com que o elemento overlay seja retirado do fluxo normal do documento, e seja posicionado em relação ao seu ancestral mais próximo com posição diferente de static (neste caso, o body) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5); /* isto faz com que o overlay seja semi-transparente */
+      z-index: 9998; /* isto garante que o overlay fique abaixo do loading */
+      backdrop-filter: blur(10px);
+  }
+  .loading {
+      display: none;
+      position: absolute; /* isto faz com que o elemento loading seja retirado do fluxo normal do documento, e seja posicionado em relação ao seu ancestral mais próximo com posição diferente de static (neste caso, o body) */
+      padding-top: 50px;
+      left: 20%;
+      top: 0;
+      margin: auto; 
+      z-index: 9999;
+  }
+  .bg-image {
+      margin-top: -20px;
+    /* The image used */
+    background-image: url("../img/btc.jpg");
+    /* Add the blur effect */
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    /* Full height and width */
+    height: 1400px;
     width: 100%;
-    background-color: grey;
-    color: white;
-    text-align: center;
- }
+    position: absolute; /* This will make the image stay behind the content */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .content {
+    position: relative; /* This will make the content stay on top of the image */
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  h1{
+      color: white;
+  }
+  label{
+      color: white;
+  }
+  #btn-buscar {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: 2px #3e34ee solid;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+  }
+  #btn-buscar:hover {
+      background-color: #3e34ee;
+  }
+  #wordCount {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      appearance: none; /* Remove a aparência padrão em alguns navegadores */
+      -webkit-appearance: none; /* Remove a aparência padrão no Chrome e Safari */
+      -moz-appearance: none; /* Remove a aparência padrão no Firefox */
+      background-color: #f9f9f9;
+      color: #333;
+  }
+  
+  #keygenControls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+  }
+  #close-btn{
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: 2px #3e34ee solid;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      transition-duration: 0.4s;
+  }
+  #close-btn:hover {
+      background-color: #3e34ee;
+  }
+  .card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0 6px 10px 10px rgba(0, 0, 0, 0.2);
+      max-width: 70%;
+      margin: auto;
+      z-index: 2;
+  }
+  
+  .positive {
+      color: green;
+  }
+  
+  .zero {
+      color: red;
+  }
+  
+  .modal {
+      display: block;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(255,255,255,0.4); /* Altera para um fundo claro para realçar o efeito de vidro */
+      backdrop-filter: blur(10px); /* Aplica o efeito de desfoque */
+  }
+  .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      width: 80%;
+      border: solid 3px #00ff00;
+      border-radius: 10px;
+      animation: pulsate 2s infinite;
+  }
+  
+  @keyframes pulsate {
+      0%   { box-shadow: 0 0 5px #33e3da, 0 0 25px #00ff00, 0 0 50px #00ff00, 0 0 200px #2ac4d5; }
+      50%  { box-shadow: 0 0 10px #fdfa29, 0 0 20px #18b7ec, 0 0 40px #d2cf19, 0 0 150px #0eedde; }
+      100% { box-shadow: 0 0 5px #00ff00, 0 0 25px #00ff00, 0 0 50px #00ff00, 0 0 200px #00ff00; }
+  }
+  
+  @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+  }
+  .close {
+      color: #bb0707;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  .footer {
+     
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: grey;
+     color: white;
+     text-align: center;
+  }
+  
