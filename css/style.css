@@ -8,6 +8,7 @@ body {
     background-color: #4CAF50;
     color: white;
     border: 2px #3e34ee solid;
+    border-radius: 10px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -18,6 +19,26 @@ body {
 #btn-buscar:hover {
     background-color: #3e34ee;
 }
+#wordCount {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none; /* Remove a aparência padrão em alguns navegadores */
+    -webkit-appearance: none; /* Remove a aparência padrão no Chrome e Safari */
+    -moz-appearance: none; /* Remove a aparência padrão no Firefox */
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+#keygenControls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
 #close-btn{
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -96,3 +117,12 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+ }

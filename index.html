@@ -9,7 +9,18 @@
 <body>
     <h1>Gere as Chaves</h1>
     <hr>
-    <button id="btn-buscar">Buscar Tesouro</button>
+    <div id="keygenControls">
+        <label for="wordCount">Quantidade de palavras:</label>
+        <select id="wordCount">
+            <option value="12">12</option>
+            <script>
+                for (let i = 1; i <= 24; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select>
+        <button id="btn-buscar">Buscar Tesouro</button>
+    </div>
     <hr>
     <img src="img/loading.gif" class="loading" id="loadingImage"/>
     <div id="output"></div>
@@ -39,6 +50,9 @@
             <button id="close-btn">Entendi</button>
         </div>
     </div>
+    <div class="footer">
+        <p>faustinopsy.com</p>
+      </div>
     <script src="js/highlight.min.js"></script>
     <script src="js/funcoes.js"></script>
         
